@@ -40,8 +40,15 @@ async function getArticleStoreDoc(docName) {
 }
 
 exports.countArticleDoc = docName => countArticleStoreDoc(docName);
-
 async function countArticleStoreDoc(docName) {
+    let snap = await db.collection(collectionArticles).where('category', '==', docName).get();
+    let size = snap.size // return the collection size
+    return size;
+}
+
+
+exports.getArticlesInCategory = docName => getArticlesByCat(docName);
+async function getArticlesByCat(docName) {
     let snap = await db.collection(collectionArticles).where('category', '==', docName).get();
     let arts = [];
     snap.docs.map(doc => arts.push({
@@ -51,12 +58,6 @@ async function countArticleStoreDoc(docName) {
     return arts;
 }
 
-exports.getArticlesInCategory = docName => getArticlesByCat(docName);
-async function getArticlesByCat(docName) {
-    let snap = await db.collection(collectionArticles).where('category', '==', docName).get();
-    let size = snap.size // return the collection size
-    return size;
-}
 
 exports.getCats = () => getStoreCats(collectionCategories);
 
@@ -64,10 +65,13 @@ async function getStoreCats(collectionCategories) {
     try {
         let snap = await db.collection(collectionCategories).get();
         let cats = [];
-        snap.docs.map(doc => cats.push({
-            id: doc.id,
-            data: doc.data()
-        }));//  => doc.data);
+        snap.docs.map(doc => {
+            let articles = 0;
+            cats.push({
+                id: doc.id,
+                data: doc.data(),
+            })
+        });//  => doc.data);
         return cats;
     } catch (err) {
         throw err;
@@ -81,12 +85,13 @@ async function getCategoriesTerm(term) {
         let snap = await db.collection(collectionCategories).get();
         let cats = [];
         snap.docs.map(doc => {
-            console.log('data()()(title):: ',doc.data().title)
-             if(((doc.data()).title).includes(term))
-             {cats.push({
-                 id: doc.id,
-                 data: doc.data()
-             })}
+            console.log('data()()(title):: ', doc.data().title)
+            if (((doc.data()).title).includes(term)) {
+                cats.push({
+                    id: doc.id,
+                    data: doc.data()
+                })
+            }
         });//  => doc.data);
         return cats;
     } catch (err) {
