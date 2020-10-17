@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var {serviceReadArticle, collArt, serviceArticlesByCategory} = require('../services/serviceDoc');
+var {serviceReadArticle, collArt, serviceArticlesByCategory} = require('../services/service');
 
 /* GET articles listing. */
 router.get('/', collArt, (req,res,next) => res.json(res.data));
