@@ -1,13 +1,14 @@
 {
   "name": "affixe",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "dependencies": {
     "nodemon": "^2.0.5"
   },
   "devDependencies": {},
   "scripts": {
+    "serve": "vue-cli-service serve",
+    "start": "concurrently \"npm run serve\" \"cd ../server && npm start\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,5 +20,7 @@
   "bugs": {
     "url": "https://github.com/Cign/affixeTest/issues"
   },
-  "homepage": "https://github.com/Cign/affixeTest#readme"
+  "homepage": "https://github.com/Cign/affixeTest#readme",
+  "keywords": [],
+  "description": ""
 }
