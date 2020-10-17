@@ -7,8 +7,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "start": "concurrently \"npm run serve\" \"cd ../server && npm start\"",
+    "serve": "cd ./client && vue-cli-service serve",
+    "start": "concurrently \"npm run serve\" \"cd ./server && npm start\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
