@@ -41,12 +41,12 @@ export default {
   methods: {
     all_cats() {
       let list = [];
-      axios.get("http://affixer007.herokuapp.com/api/cats").then(res => {
+      axios.get("https://affixer007.herokuapp.com/api/cats").then(res => {
         console.log("All cats", res.data);
         this.cats = res.data;
         this.$store.commit('majCats', res.data);
         res.data.forEach(c => {
-          axios.get("http://affixer007.herokuapp.com/api/cats/article/count/" + c.id).then((n) => {
+          axios.get("https://affixer007.herokuapp.com/api/cats/article/count/" + c.id).then((n) => {
             list.push({
               id: c.id,
               num: n.data
@@ -60,7 +60,7 @@ export default {
     countArticles(id) {
       let x = 0;
       axios
-        .get("http://affixer007.herokuapp.com/api/cats/article/count/" + id)
+        .get("https://affixer007.herokuapp.com/api/cats/article/count/" + id)
         .then(res => {
           x = res.data;
         })

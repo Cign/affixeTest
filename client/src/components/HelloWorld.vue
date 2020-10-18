@@ -49,11 +49,11 @@ export default {
       console.log("One categ",res.data);
     })
 
-    axios.get('http://affixer007.herokuapp.com/api/articles').then((res)=>{
+    axios.get('https://affixer007.herokuapp.com/api/articles').then((res)=>{
       console.log("Articles ::",res.data);
     })
 
-    axios.get('http://affixer007.herokuapp.com/api/articles/doc/1').then((res)=>{
+    axios.get('https://affixer007.herokuapp.com/api/articles/doc/1').then((res)=>{
       console.log("One art",res.data);
     })
 

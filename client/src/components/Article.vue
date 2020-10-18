@@ -50,7 +50,7 @@ export default {
         },
   methods:{
             getArticle(){
-                axios.get('http://affixer007.herokuapp.com/api/articles/doc/'+this.id).then((res)=>{
+                axios.get('https://affixer007.herokuapp.com/api/articles/doc/'+this.id).then((res)=>{
                     this.art = res.data;
                     console.log("cat  $",this.art)
                 }).catch((err) => {throw err})
@@ -60,11 +60,11 @@ export default {
     
     
     //H73tCOFNdpnOilPvZrOL
-    axios.get('http://affixer007.herokuapp.com/api/cats/doc/H73tCOFNdpnOilPvZrOL').then((res)=>{
+    axios.get('https://affixer007.herokuapp.com/api/cats/doc/H73tCOFNdpnOilPvZrOL').then((res)=>{
       console.log("One categ",res.data);
     })
 
-    axios.get('http://affixer007.herokuapp.com/api/articles/category/H73tCOFNdpnOilPvZrOL').then((res)=>{
+    axios.get('https://affixer007.herokuapp.com/api/articles/category/H73tCOFNdpnOilPvZrOL').then((res)=>{
         console.log("Arts in cat H73tCOFNdpnOilPvZrOL",res.data);
         })
   },

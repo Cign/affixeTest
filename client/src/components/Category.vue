@@ -53,13 +53,13 @@ export default {
         },
   methods:{
             getCategory(){
-                axios.get('http://affixer007.herokuapp.com/api/cats/doc/'+this.id).then((res)=>{
+                axios.get('https://affixer007.herokuapp.com/api/cats/doc/'+this.id).then((res)=>{
                     this.cat = res.data;
                     console.log("cat  $",this.cat)
                 }).catch((err) => {throw err})
             },
             countArticles() {
-               axios.get('http://affixer007.herokuapp.com/api/cats/article/count/'+this.id).then((res)=>{
+               axios.get('https://affixer007.herokuapp.com/api/cats/article/count/'+this.id).then((res)=>{
                 this.nArticles = res.data;
               });
             }

@@ -51,14 +51,14 @@ export default {
   },
   methods:{
     search: function () {
-      axios.get('http://affixer007.herokuapp.com/api/search/category/'+this.selectedCat).then((res)=>{
+      axios.get('https://affixer007.herokuapp.com/api/search/category/'+this.selectedCat).then((res)=>{
       console.log("All cats from search", res.data);
       this.$store.commit('majCats', res.data);
     })
     }
   },
   mounted() {
-    axios.get('http://affixer007.herokuapp.com/api/cats').then((res)=>{
+    axios.get('https://affixer007.herokuapp.com/api/cats').then((res)=>{
       console.log("All cats", res.data);
       let optCat = [];
       res.data.forEach((cat) => {
