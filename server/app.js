@@ -41,11 +41,11 @@ var bodyParser = require('body-parser');
 // });
 
 
-var indexRouter = require('../routes/index');
+var indexRouter = require('./routes/index');
 //var usersRouter = require('./routes/users');
-var categoriesRouter = require('../routes/categories');
-var articlesRouter = require('../routes/articles');
-var searchRouter = require('../routes/search');
+var categoriesRouter = require('./routes/categories');
+var articlesRouter = require('./routes/articles');
+var searchRouter = require('./routes/search');
 
 var app = express();
 
