@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
+const path = require('path')
 var bodyParser = require('body-parser');
 // <!-- The core Firebase JS SDK is always required and must be listed first -->
 // <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
@@ -56,6 +57,7 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(cors());
+app.use(express.static(path.join(__dirname, '../../client/dist'))) 
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
