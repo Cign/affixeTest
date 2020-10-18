@@ -3,9 +3,8 @@ var router = express.Router();
 var {serviceReadCategory, collCat, serviceSearch, serviceCountArticles } = require('../services/service');
 
 /* GET categories listing. */
-router.get('/', collCat, (req,res,next) => res.json(res.data));
-
-router.get('/test', function(req,res,next) {res.json("{'id': 1, 'test': 'yoo'}")});
+router.get('/', collCat, (req,res,next) => { res.header("Access-Control-Allow-Origin", "*");
+res.header("Access-Control-Allow-Headers", "X-Requested-With"); res.json(res.data)});
 
 /* GET single category. */
 router.get('/doc/:doc', serviceReadCategory, (req,res,next) => res.json(res.data));
