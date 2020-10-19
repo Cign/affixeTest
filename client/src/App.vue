@@ -1,20 +1,25 @@
+
 <template>
+<v-app>
   <div id="app">
-    <Header msg="Header"/>
-    <main>
+    <Header />
+    <v-main>
+      <SubHeader />
       <router-view></router-view>
-    </main>
+    </v-main>
   </div>
+  </v-app>
 </template>
 
 <script>
 //import HelloWorld from './components/HelloWorld.vue'
 import Header from './components/Header.vue'
-
+import SubHeader from './components/SubHeader.vue'
 export default {
   name: 'App',
   components: {
     Header,
+    SubHeader
   }
 }
 </script>

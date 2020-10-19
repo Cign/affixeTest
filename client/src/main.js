@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import VueMaterial from 'vue-material' 
+import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
 import moment from 'moment';
 require('moment/locale/fr')
 import Vuex from 'vuex'
+import vuetify from './plugins/vuetify';
 
 Vue.use(Vuex)
 Vue.use(VueMaterial);
@@ -29,6 +30,6 @@ const store = new Vuex.Store({
 new Vue({
   router,
   store,
-  render: h => h(App),
-
+  vuetify,
+  render: h => h(App)
 }).$mount('#app')

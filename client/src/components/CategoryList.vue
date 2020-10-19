@@ -1,20 +1,25 @@
 
 <template>
-  <div class="categoryList">
-    <md-card class="md-primary categorieBox" md-theme="green-card" v-for="c in this.$store.state.cats" :key="c.id">
+  <v-container >
+  <v-row class="mb-6"
+      justify="center">
+  <v-col sm="9" class="text-left ">
+    <md-card class="md-primary" md-theme="green-card" v-for="c in this.$store.state.cats" :key="c.id">
       <router-link :to="{ name: 'category', query: { id: c.id }}">
         <md-card-header>
           <md-card-media>
             <img :src="c.data.icon" alt="Avatar" />
           </md-card-media>
-          <md-card-header-text class="wrapFlex">
-            <p class="md-title textPosition">{{c.data.title}}</p>
-            <p class="md-subhead textPosition">{{ findArticlesNumber(c.id) }} articles dans cette catégorie</p>
+          <md-card-header-text class="px-5">
+            <p class="md-title ">{{c.data.title}}</p>
+            <p class="md-subhead ">{{ findArticlesNumber(c.id) }} articles dans cette catégorie</p>
           </md-card-header-text>
         </md-card-header>
       </router-link>
     </md-card>
-  </div>
+    </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -83,22 +88,4 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-.textPosition {
-  text-align: left;
-  padding-left: 7%;
-}
 
-.wrapFlex {
-  flex-wrap: wrap;
-}
-
-.categorieBox {
-  width: 60%;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 1%;
-  background-color: white;
-}
-</style>

@@ -1,17 +1,17 @@
 
 <template>
-  <div>
-    <md-card md-with-hover class="articleBox" v-for="a in arts" :key="a.id">
+  <v-container class="mx-5 ">
+    <md-card md-with-hover class="rounded color" v-for="a in arts" :key="a.id">
      <router-link  :to="{ name: 'article', query: { id: a.id }}">
       <md-ripple>
-        <md-card-header>
+        <md-card-header >
           <div class="md-body-2"> {{a.data.title}} </div>
           <div class="md-caption">Mise à jour  {{ a.data.timestamp._seconds | duration('humanize') }}</div>
         </md-card-header>
       </md-ripple>
      </router-link>
     </md-card>
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -59,26 +59,9 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-.articleBox{
-    width: 89%;
-    margin-left: 4.5%;
-    margin-top: 1.5%;
-    background: #F2F7F9 0% 0% no-repeat padding-box;
-    border-radius: 4px;
-}
-
-.shadow{
-    box-shadow: none !important;
-}
-
-.category{
-    margin-top: 5%;
-    text-align: left;
-    padding: 5px;
-    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12);
-    background-color: white;
+.color {
+  background-color: #e1e5ec !important;
 }
 </style>
+
