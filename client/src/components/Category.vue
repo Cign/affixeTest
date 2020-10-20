@@ -55,7 +55,7 @@ export default {
         {
           text: 'Aide en ligne',
           disabled: false,
-          href: 'index',
+          href: '/',
         },
         {
           text: 'Catégorie',
